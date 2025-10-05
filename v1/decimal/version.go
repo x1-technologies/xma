@@ -1,8 +1,6 @@
 // Package: xma/v1/decimal
 // File: version.go
 
-package decimal
-
 // Acknowledgement:
 //   This implementation is a reference
 //   Referenced Project Name: shopspring/decimal
@@ -10,20 +8,32 @@ package decimal
 //   Referenced Project URL: https://github.com/shopspring/decimal
 //   Referencer: x1-tech.com
 //   Reference Project: xma
-//   Version Number Relation pseudo-code:
-//     const (
-//       SyncModeFull = "FULL"
-//       SyncModeBranchMerge = "BRANCH_MERGE"
-//     )
-//     [0]xma.CodeSyncRecord = {
-//       XmaVersion: "1.0.10000",
-//       ShopSpringDecimalVersion: "1.4.0",
-//       SyncMode: SyncModeFull,
-//       SyncDate: "2025-10-04Z",
-//     }
 //   Feel grateful to the contributors
 
+package decimal
+
 const (
-	Version = "1.0.10000"
-	LastSyncDate = "2025-10-04Z"
+	Version        = "1.0.10000"
+	LastUpdateDate = "2025-10-04Z"
 )
+
+const (
+	SyncModeFull        = "FULL"
+	SyncModeBranchMerge = "BRANCH_MERGE"
+)
+
+type CodeSyncRecord struct {
+	XmaDecimalVersion        string
+	ShopSpringDecimalVersion string
+	SyncMode                 string
+	SyncDate                 string
+}
+
+var CodeSyncRecords = []CodeSyncRecord{
+	{
+		XmaDecimalVersion:        "1.0.10000",
+		ShopSpringDecimalVersion: "1.4.0",
+		SyncMode:                 SyncModeFull,
+		SyncDate:                 "2025-10-04Z",
+	},
+}
